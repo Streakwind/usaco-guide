@@ -199,9 +199,12 @@ an applicant's desired size.
 This is possible with a multiset: removal is efficient and elements 
 may be duplicated. 
 
+Note that we have to sort the apartments so applicants could be 
+matched with the apartment closed to their desired size.
+
 ## Implementation
 
-**Time Complexity**: $\mathcal{O}((n + m)\log(n))$
+**Time Complexity**: $\mathcal{O}((n + m)\log(n)+m\log(m))$
 
 <LanguageSection>
 <CPPSection>
@@ -225,6 +228,8 @@ int main () {
 	}
 
 	long long res = 0;
+
+	sort(apartments.begin(), apartments.end());
 
 	for (int e : apartments) {
 		// find an apartment in the range
